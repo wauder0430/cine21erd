@@ -42,3 +42,76 @@ COMPANY & MOVIE_INVOLVEMENT: 회사는 하나로 관리하되, MOVIE_INVOLVEMENT
 
 ##### ⚠️ Version Control
 - 단기 프로젝트 특성상 별도의 형상 관리 도구(Git 등) 없이 단계별 파일 분할(v1.0, v1.1_Refactored 등)을 통해 이력을 관리함.
+
+
+
+### 영화 데이터베이스 ERD 설계
+#### 📊 데이터 계층 구조 (Depth)
+##### 1 Depth - 기초 마스터 데이터
+- 독립적인 코드/마스터 테이블로, 다른 테이블의 참조 대상이 되는 기본 정보입니다.
+
+	- 국가 (COUNTRY)
+
+	- 시놉시스 (SYNOPSIS)
+
+	- 심의등급 (RATING)
+
+- 2 Depth - 핵심 엔티티
+1 Depth 데이터를 참조하여 구성되는 주요 비즈니스 개체입니다.
+
+	- 영화 (MOVIE)
+
+	- 영화 회사 (MOVIE_COMPANY)
+
+	- 감독 (DIRECTOR)
+
+	- 배우 (ACTOR)
+
+	- 전문가 (EXPERT)
+
+	- 고객 (CUSTOMER)
+
+	- 장르 (GENRE)
+
+	- 기자 (JOURNALIST)
+
+- 3 Depth - 관계 및 상세 정보
+2 Depth 엔티티 간의 다대다(N:M) 관계를 해소하거나, 상세 정보를 담는 테이블입니다.
+
+	- 관련영화 (RELATED_MOVIE)
+
+	- 대표자 (REPRESENTATIVE)
+
+	- 서비스 (SERVICE)
+
+	- 연출 (DIRECTING)
+
+	- 출연 (CASTING)
+
+	- 전문가리뷰 (EXPERT_REVIEW)
+
+	- 고객리뷰 (CUSTOMER_REVIEW)
+
+	- 영화장르 (MOVIE_GENRE)
+
+	- 기사 (ARTICLE)
+
+### 👤 담당 업무
+#### 담당 테이블
+-	시놉시스 (SYNOPSIS)
+
+-	영화 회사 (MOVIE_COMPANY)
+
+-	대표자 (REPRESENTATIVE)
+
+-	서비스 (SERVICE)
+
+#### 수행 작업
+✅ DDL 작성
+
+✅ DDL 충돌 확인 (FK 참조 순서 검증)
+
+✅ DML 충돌 확인 (데이터 삭제 시 참조 무결성)
+
+✅ DML 작성 및 병합
+
